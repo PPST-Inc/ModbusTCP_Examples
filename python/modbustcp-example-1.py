@@ -2,8 +2,8 @@
 # Version: 1.0.0
 # Date: 11/07/2022
 # Dependences:
-# - pip install pymodbus
-# - pip install pyModbusTCP
+# - pip install pymodbus==3.0.2
+# - pip install pyModbusTCP==0.2.0
 # Last tested with:
 # - Python 3.10.5
 # - pymodbus 3.0.2
@@ -55,6 +55,10 @@ time.sleep(6)
 print('Setting voltage AC to 30 Vrms')
 write_float_setpoint(3008, 30.0)
 time.sleep(2)
+
+print('Reading frequency measurement')
+voltage = read_float_measurement(1000)
+print('Frequency measurement: ' + str(round(voltage, 2)) + ' Hz')
 
 print('Reading RMS voltage measurement')
 voltage = read_float_measurement(1032)
